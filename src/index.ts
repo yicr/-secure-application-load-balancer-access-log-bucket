@@ -1,3 +1,4 @@
+import { SecureBucket, SecureBucketEncryption } from '@yicr/secure-bucket';
 import * as cdk from 'aws-cdk-lib';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -9,40 +10,34 @@ export interface SecureApplicationLoadBalancerAccessLogBucketProps {
   readonly region: string;
 }
 
-export class SecureApplicationLoadBalancerAccessLogBucket extends s3.Bucket {
+export class SecureApplicationLoadBalancerAccessLogBucket extends SecureBucket {
 
   constructor(scope: Construct, id: string, props: SecureApplicationLoadBalancerAccessLogBucketProps) {
     super(scope, id, {
       bucketName: props.bucketName,
-      accessControl: s3.BucketAccessControl.PRIVATE,
-      removalPolicy: cdk.RemovalPolicy.RETAIN,
-      encryption: s3.BucketEncryption.KMS_MANAGED,
-      publicReadAccess: false,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      enforceSSL: true,
-      versioned: true,
-      lifecycleRules: [
+      encryption: SecureBucketEncryption.KMS_MANAGED,
+    });
+
+    // 👇Add Lifecycle rule.
+    this.addLifecycleRule({
+      id: 'ArchiveStepLifeCycle',
+      enabled: true,
+      transitions: [
         {
-          id: 'ArchiveStepLifeCycle',
-          enabled: true,
-          transitions: [
-            {
-              storageClass: s3.StorageClass.INFREQUENT_ACCESS,
-              transitionAfter: cdk.Duration.days(60),
-            },
-            {
-              storageClass: s3.StorageClass.INTELLIGENT_TIERING,
-              transitionAfter: cdk.Duration.days(120),
-            },
-            {
-              storageClass: s3.StorageClass.GLACIER,
-              transitionAfter: cdk.Duration.days(180),
-            },
-            {
-              storageClass: s3.StorageClass.DEEP_ARCHIVE,
-              transitionAfter: cdk.Duration.days(360),
-            },
-          ],
+          storageClass: s3.StorageClass.INFREQUENT_ACCESS,
+          transitionAfter: cdk.Duration.days(60),
+        },
+        {
+          storageClass: s3.StorageClass.INTELLIGENT_TIERING,
+          transitionAfter: cdk.Duration.days(120),
+        },
+        {
+          storageClass: s3.StorageClass.GLACIER,
+          transitionAfter: cdk.Duration.days(180),
+        },
+        {
+          storageClass: s3.StorageClass.DEEP_ARCHIVE,
+          transitionAfter: cdk.Duration.days(360),
         },
       ],
     });
