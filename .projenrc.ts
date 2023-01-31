@@ -6,7 +6,7 @@ const PROJECT_DESCRIPTION = 'AWS Application Load Balancer access log optimized 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
-  cdkVersion: '2.43.0',
+  cdkVersion: '2.62.2',
   defaultReleaseBranch: 'main',
   projenrcTs: true,
   name: PROJECT_NAME,
