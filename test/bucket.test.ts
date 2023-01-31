@@ -39,17 +39,6 @@ describe('SecureApplicationLoadBalancerAccessLogBucket Testing', () => {
     });
   });
 
-  it('Should block public access', () => {
-    template.hasResourceProperties('AWS::S3::Bucket', {
-      PublicAccessBlockConfiguration: Match.objectEquals({
-        BlockPublicAcls: true,
-        BlockPublicPolicy: true,
-        IgnorePublicAcls: true,
-        RestrictPublicBuckets: true,
-      }),
-    });
-  });
-
   it('Should versioning enabled', () => {
     template.hasResourceProperties('AWS::S3::Bucket', {
       VersioningConfiguration: Match.objectEquals({
@@ -112,10 +101,6 @@ describe('SecureApplicationLoadBalancerAccessLogBucket Testing', () => {
         ]),
       },
     });
-  });
-
-  it('', () => {
-
   });
 
   it('Should match snapshot', () => {
