@@ -15,8 +15,6 @@ describe('SecureApplicationLoadBalancerAccessLogBucket Testing', () => {
 
   const bucket = new SecureApplicationLoadBalancerAccessLogBucket(stack, 'SecureApplicationLoadBalancerAccessLogBucket', {
     bucketName: 'example-alb-access-log-bucket',
-    account: '123456789012',
-    region: 'us-east-1',
   });
 
   it('Is Bucket', () => {
@@ -140,13 +138,11 @@ describe('Region SecureApplicationLoadBalancerAccessLogBucket Testing', () => {
     const stack = new Stack(app, `TestingStack${regionCode}`, {
       env: {
         account: '123456789012',
-        region: 'us-east-1',
+        region: regionCode,
       },
     });
     new SecureApplicationLoadBalancerAccessLogBucket(stack, 'SecureApplicationLoadBalancerAccessLogBucket', {
       bucketName: 'example-alb-access-log-bucket',
-      account: '123456789012',
-      region: regionCode,
     });
     const template = Template.fromStack(stack);
     template.hasResourceProperties('AWS::S3::BucketPolicy', {
@@ -198,14 +194,12 @@ describe('Region SecureApplicationLoadBalancerAccessLogBucket Testing', () => {
     const stack = new Stack(app, 'ErrorTestingStack', {
       env: {
         account: '123456789012',
-        region: 'us-east-1',
+        region: 'xx-xxx-1',
       },
     });
     const bucket = () => {
       new SecureApplicationLoadBalancerAccessLogBucket(stack, 'SecureApplicationLoadBalancerAccessLogBucket', {
         bucketName: 'example-alb-access-log-bucket',
-        account: '123456789012',
-        region: 'xx-xxx-1',
       });
     };
     expect(bucket).toThrowError(Error);
