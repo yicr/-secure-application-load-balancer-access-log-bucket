@@ -1,4 +1,4 @@
-const { awscdk, javascript } = require('projen');
+import { awscdk, javascript } from 'projen';
 
 const PROJECT_NAME = '@yicr/secure-application-load-balancer-access-log-bucket';
 const PROJECT_DESCRIPTION = 'AWS Application Load Balancer access log optimized secure bucket.';
@@ -8,6 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.43.0',
   defaultReleaseBranch: 'main',
+  projenrcTs: true,
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repositoryUrl: 'https://github.com/yicr/secure-application-load-balancer-access-log-bucket.git',
