@@ -9,7 +9,7 @@
 ```typescript
 import { SecureApplicationLoadBalancerAccessLogBucket } from '@yicr/secure-application-load-balancer-access-log-bucket'
 
-new SecureApplicationLoadBalancerAccessLogBucket(scope: Construct, id: string, props: SecureApplicationLoadBalancerAccessLogBucketProps)
+new SecureApplicationLoadBalancerAccessLogBucket(scope: Construct, id: string, props?: SecureApplicationLoadBalancerAccessLogBucketProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -32,7 +32,7 @@ new SecureApplicationLoadBalancerAccessLogBucket(scope: Construct, id: string, p
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps">SecureApplicationLoadBalancerAccessLogBucketProps</a>
 
@@ -1129,36 +1129,14 @@ const secureApplicationLoadBalancerAccessLogBucketProps: SecureApplicationLoadBa
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.account">account</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.region">region</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `account`<sup>Required</sup> <a name="account" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.account"></a>
-
-```typescript
-public readonly account: string;
-```
-
-- *Type:* string
-
----
-
-##### `bucketName`<sup>Required</sup> <a name="bucketName" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.bucketName"></a>
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.bucketName"></a>
 
 ```typescript
 public readonly bucketName: string;
-```
-
-- *Type:* string
-
----
-
-##### `region`<sup>Required</sup> <a name="region" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucketProps.property.region"></a>
-
-```typescript
-public readonly region: string;
 ```
 
 - *Type:* string

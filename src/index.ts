@@ -5,18 +5,19 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
 export interface SecureApplicationLoadBalancerAccessLogBucketProps {
-  readonly bucketName: string;
-  readonly account: string;
-  readonly region: string;
+  readonly bucketName?: string;
 }
 
 export class SecureApplicationLoadBalancerAccessLogBucket extends SecureBucket {
 
-  constructor(scope: Construct, id: string, props: SecureApplicationLoadBalancerAccessLogBucketProps) {
+  constructor(scope: Construct, id: string, props?: SecureApplicationLoadBalancerAccessLogBucketProps) {
     super(scope, id, {
-      bucketName: props.bucketName,
+      bucketName: props?.bucketName,
       encryption: SecureBucketEncryption.KMS_MANAGED,
     });
+
+    const account = cdk.Stack.of(this).account;
+    const region = cdk.Stack.of(this).region;
 
     // 👇Add Lifecycle rule.
     this.addLifecycleRule({
@@ -51,7 +52,7 @@ export class SecureApplicationLoadBalancerAccessLogBucket extends SecureBucket {
       principals: [
         new iam.AccountPrincipal((() => {
           // https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html
-          switch (props.region) {
+          switch (region) {
             case 'us-east-1': // US East (N. Virginia)
               return '127311923021';
             case 'us-east-2': // US East (Ohio)
@@ -109,7 +110,7 @@ export class SecureApplicationLoadBalancerAccessLogBucket extends SecureBucket {
           }
         })()),
       ],
-      resources: [`${this.bucketArn}/AWSLogs/${props.account}/*`],
+      resources: [`${this.bucketArn}/AWSLogs/${account}/*`],
     }));
 
   }
