@@ -14,7 +14,9 @@ or
 yarn add @yicr/secure-application-load-balancer-access-log-bucket
 ```
 
-## Example(TypeScript)
+## Example
+
+### TypeScript
 
 ```shell
 npm install @yicr/secure-application-load-balancer-access-log-bucket
@@ -25,8 +27,6 @@ import { SecureApplicationLoadBalancerAccessLogBucket } from '@yicr/secure-appli
 
 new SecureApplicationLoadBalancerAccessLogBucket(stack, 'SecureApplicationLoadBalancerAccessLogBucket', {
   bucketName: 'example-alb-access-log-bucket',
-  account: '123456789012',
-  region: 'us-east-1',
 });
 
 ```
