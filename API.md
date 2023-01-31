@@ -368,7 +368,7 @@ public grantPutAcl(identity: IGrantable, objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.grantPutAcl.parameter.identity"></a>
@@ -427,7 +427,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.grantReadWrite.parameter.identity"></a>
 
@@ -458,7 +458,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.grantWrite.parameter.identity"></a>
 
@@ -748,7 +748,7 @@ The metric configuration to add.
 | <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.fromBucketArn">fromBucketArn</a></code> | *No description.* |
 | <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.fromBucketAttributes">fromBucketAttributes</a></code> | Creates a Bucket construct that represents an external bucket. |
 | <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.fromBucketName">fromBucketName</a></code> | *No description.* |
-| <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.fromCfnBucket">fromCfnBucket</a></code> | Create a mutable {@link IBucket} based on a low-level {@link CfnBucket}. |
+| <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.fromCfnBucket">fromCfnBucket</a></code> | Create a mutable `IBucket` based on a low-level `CfnBucket`. |
 | <code><a href="#@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.validateBucketName">validateBucketName</a></code> | Thrown an exception if the given bucket name is not valid. |
 
 ---
@@ -900,7 +900,7 @@ import { SecureApplicationLoadBalancerAccessLogBucket } from '@yicr/secure-appli
 SecureApplicationLoadBalancerAccessLogBucket.fromCfnBucket(cfnBucket: CfnBucket)
 ```
 
-Create a mutable {@link IBucket} based on a low-level {@link CfnBucket}.
+Create a mutable `IBucket` based on a low-level `CfnBucket`.
 
 ###### `cfnBucket`<sup>Required</sup> <a name="cfnBucket" id="@yicr/secure-application-load-balancer-access-log-bucket.SecureApplicationLoadBalancerAccessLogBucket.fromCfnBucket.parameter.cfnBucket"></a>
 
