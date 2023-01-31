@@ -23,7 +23,6 @@ Object {
             },
           ],
         },
-        "BucketName": "example-alb-access-log-bucket",
         "LifecycleConfiguration": Object {
           "Rules": Array [
             Object {

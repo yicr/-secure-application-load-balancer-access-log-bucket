@@ -13,9 +13,7 @@ describe('SecureApplicationLoadBalancerAccessLogBucket Testing', () => {
     },
   });
 
-  const bucket = new SecureApplicationLoadBalancerAccessLogBucket(stack, 'SecureApplicationLoadBalancerAccessLogBucket', {
-    bucketName: 'example-alb-access-log-bucket',
-  });
+  const bucket = new SecureApplicationLoadBalancerAccessLogBucket(stack, 'SecureApplicationLoadBalancerAccessLogBucket');
 
   it('Is Bucket', () => {
     expect(bucket).toBeInstanceOf(s3.Bucket);
