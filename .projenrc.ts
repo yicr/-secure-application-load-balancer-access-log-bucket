@@ -15,13 +15,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 'elb', 'alb', 's3', 'bucket', 'access-log', 'log'],
   npmAccess: javascript.NpmAccess.PUBLIC,
   deps: [
-    '@yicr/secure-bucket@^0.1.1',
+    '@yicr/secure-bucket@0.1.2',
   ],
   devDeps: [
-    '@yicr/secure-bucket@0.1.1',
+    '@yicr/secure-bucket@0.1.2',
   ],
   peerDeps: [
-    '@yicr/secure-bucket@0.1.1',
+    '@yicr/secure-bucket@0.1.2',
   ],
 });
 project.synth();
