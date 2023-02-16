@@ -15,10 +15,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 'elb', 'alb', 's3', 'bucket', 'access-log', 'log'],
   npmAccess: javascript.NpmAccess.PUBLIC,
   devDeps: [
-    '@yicr/secure-bucket@^0.1.10',
+    '@yicr/secure-bucket',
   ],
   peerDeps: [
-    '@yicr/secure-bucket@^0.1.10',
+    '@yicr/secure-bucket',
   ],
   depsUpgradeOptions: {
     workflowOptions: {
