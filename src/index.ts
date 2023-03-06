@@ -1,47 +1,21 @@
-import { SecureBucket, SecureBucketEncryption } from '@yicr/secure-bucket';
+import { SecureLogBucket } from '@yicr/secure-log-bucket';
 import * as cdk from 'aws-cdk-lib';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
 export interface SecureApplicationLoadBalancerAccessLogBucketProps {
   readonly bucketName?: string;
 }
 
-export class SecureApplicationLoadBalancerAccessLogBucket extends SecureBucket {
+export class SecureApplicationLoadBalancerAccessLogBucket extends SecureLogBucket {
 
   constructor(scope: Construct, id: string, props?: SecureApplicationLoadBalancerAccessLogBucketProps) {
     super(scope, id, {
       bucketName: props?.bucketName,
-      encryption: SecureBucketEncryption.KMS_MANAGED,
     });
 
     const account = cdk.Stack.of(this).account;
     const region = cdk.Stack.of(this).region;
-
-    // 👇Add Lifecycle rule.
-    this.addLifecycleRule({
-      id: 'ArchiveStepLifeCycle',
-      enabled: true,
-      transitions: [
-        {
-          storageClass: s3.StorageClass.INFREQUENT_ACCESS,
-          transitionAfter: cdk.Duration.days(60),
-        },
-        {
-          storageClass: s3.StorageClass.INTELLIGENT_TIERING,
-          transitionAfter: cdk.Duration.days(120),
-        },
-        {
-          storageClass: s3.StorageClass.GLACIER,
-          transitionAfter: cdk.Duration.days(180),
-        },
-        {
-          storageClass: s3.StorageClass.DEEP_ARCHIVE,
-          transitionAfter: cdk.Duration.days(360),
-        },
-      ],
-    });
 
     // 👇Allow Region ALB Account
     this.addToResourcePolicy(new iam.PolicyStatement({
