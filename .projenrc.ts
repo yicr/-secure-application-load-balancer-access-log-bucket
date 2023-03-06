@@ -14,16 +14,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/yicr/secure-application-load-balancer-access-log-bucket.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 'elb', 'alb', 's3', 'bucket', 'access-log', 'log'],
   npmAccess: javascript.NpmAccess.PUBLIC,
-  devDeps: [
-    '@yicr/secure-bucket',
+  deps: [
+    '@yicr/secure-log-bucket',
   ],
   peerDeps: [
-    '@yicr/secure-bucket',
+    '@yicr/secure-log-bucket',
   ],
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 19 * * *']),
     },
   },
   autoApproveOptions: {
