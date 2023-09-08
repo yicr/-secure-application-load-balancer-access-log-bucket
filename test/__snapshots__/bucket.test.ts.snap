@@ -26,7 +26,7 @@ Object {
         "LifecycleConfiguration": Object {
           "Rules": Array [
             Object {
-              "Id": "ArchiveStepLifeCycle",
+              "Id": "archive-step-lifecycle-rule",
               "Status": "Enabled",
               "Transitions": Array [
                 Object {
@@ -46,6 +46,13 @@ Object {
                   "TransitionInDays": 360,
                 },
               ],
+            },
+          ],
+        },
+        "OwnershipControls": Object {
+          "Rules": Array [
+            Object {
+              "ObjectOwnership": "BucketOwnerEnforced",
             },
           ],
         },
