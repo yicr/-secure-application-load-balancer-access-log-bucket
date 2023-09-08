@@ -1,27 +1,28 @@
 import { awscdk, javascript } from 'projen';
 
-const PROJECT_NAME = '@yicr/secure-application-load-balancer-access-log-bucket';
-const PROJECT_DESCRIPTION = 'AWS Application Load Balancer access log optimized secure bucket.';
-
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
-  cdkVersion: '2.62.2',
+  cdkVersion: '2.80.0',
+  typescriptVersion: '4.9.x',
+  jsiiVersion: '~5.0.0',
   defaultReleaseBranch: 'main',
   projenrcTs: true,
-  name: PROJECT_NAME,
-  description: PROJECT_DESCRIPTION,
-  repositoryUrl: 'https://github.com/yicr/secure-application-load-balancer-access-log-bucket.git',
+  name: '@gammarer/aws-secure-application-load-balancer-access-log-bucket',
+  description: 'AWS Application Load Balancer access log optimized secure bucket.',
+  repositoryUrl: 'https://github.com/yicr/aws-secure-application-load-balancer-access-log-bucket.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 'elb', 'alb', 's3', 'bucket', 'access-log', 'log'],
   npmAccess: javascript.NpmAccess.PUBLIC,
   deps: [
-    '@yicr/secure-log-bucket',
+    '@gammarer/aws-secure-log-bucket@~0.12.10',
+    '@gammarer/aws-secure-bucket@~0.12.4',
   ],
   peerDeps: [
-    '@yicr/secure-log-bucket',
+    '@gammarer/aws-secure-log-bucket@~0.12.10',
+    '@gammarer/aws-secure-bucket@~0.12.4',
   ],
-  minNodeVersion: '16.0.0',
-  workflowNodeVersion: '16.19.1',
+  minNodeVersion: '18.0.0',
+  workflowNodeVersion: '18.17.1',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
