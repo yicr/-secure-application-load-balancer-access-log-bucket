@@ -105,6 +105,11 @@
       "type": "build"
     },
     {
+      "name": "@gammarer/aws-secure-bucket",
+      "version": "~0.12.4",
+      "type": "peer"
+    },
+    {
       "name": "@gammarer/aws-secure-log-bucket",
       "version": "~0.12.10",
       "type": "peer"
@@ -118,6 +123,11 @@
       "name": "constructs",
       "version": "^10.0.5",
       "type": "peer"
+    },
+    {
+      "name": "@gammarer/aws-secure-bucket",
+      "version": "~0.12.4",
+      "type": "runtime"
     },
     {
       "name": "@gammarer/aws-secure-log-bucket",
