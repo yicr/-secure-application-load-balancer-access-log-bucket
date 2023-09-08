@@ -1,9 +1,9 @@
 {
-  "name": "@yicr/secure-application-load-balancer-access-log-bucket",
+  "name": "@gammarer/aws-secure-application-load-balancer-access-log-bucket",
   "description": "AWS Application Load Balancer access log optimized secure bucket.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yicr/secure-application-load-balancer-access-log-bucket.git"
+    "url": "https://github.com/yicr/aws-secure-application-load-balancer-access-log-bucket.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -60,12 +60,12 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@yicr/secure-log-bucket": "^0.3.15",
+    "@gammarer/aws-secure-log-bucket": "~0.12.10",
     "aws-cdk-lib": "^2.62.2",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@yicr/secure-log-bucket": "^0.3.15"
+    "@gammarer/aws-secure-log-bucket": "~0.12.10"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
