@@ -21,7 +21,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@gammarer/aws-secure-log-bucket@~0.12.10',
     '@gammarer/aws-secure-bucket@~0.12.4',
   ],
-  minNodeVersion: '16.0.0',
+  minNodeVersion: '18.0.0',
   workflowNodeVersion: '16.19.1',
   depsUpgradeOptions: {
     workflowOptions: {
