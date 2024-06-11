@@ -86,13 +86,13 @@
       "type": "build"
     },
     {
-      "name": "@gammarer/aws-secure-bucket",
-      "version": "~0.12.4",
+      "name": "@gammarers/aws-secure-bucket",
+      "version": "~1.4.1",
       "type": "peer"
     },
     {
-      "name": "@gammarer/aws-secure-log-bucket",
-      "version": "~0.12.10",
+      "name": "@gammarers/aws-secure-log-bucket",
+      "version": "~1.7.2",
       "type": "peer"
     },
     {
@@ -106,13 +106,13 @@
       "type": "peer"
     },
     {
-      "name": "@gammarer/aws-secure-bucket",
-      "version": "~0.12.4",
+      "name": "@gammarers/aws-secure-bucket",
+      "version": "~1.4.1",
       "type": "runtime"
     },
     {
-      "name": "@gammarer/aws-secure-log-bucket",
-      "version": "~0.12.10",
+      "name": "@gammarers/aws-secure-log-bucket",
+      "version": "~1.7.2",
       "type": "runtime"
     }
   ],

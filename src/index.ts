@@ -1,4 +1,4 @@
-import { SecureLogBucket } from '@gammarer/aws-secure-log-bucket';
+import { SecureLogBucket } from '@gammarers/aws-secure-log-bucket';
 import * as cdk from 'aws-cdk-lib';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';

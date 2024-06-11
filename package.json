@@ -58,14 +58,14 @@
     "typescript": "5.3.x"
   },
   "peerDependencies": {
-    "@gammarer/aws-secure-bucket": "~0.12.4",
-    "@gammarer/aws-secure-log-bucket": "~0.12.10",
+    "@gammarers/aws-secure-bucket": "~1.4.1",
+    "@gammarers/aws-secure-log-bucket": "~1.7.2",
     "aws-cdk-lib": "^2.80.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@gammarer/aws-secure-bucket": "~0.12.4",
-    "@gammarer/aws-secure-log-bucket": "~0.12.10"
+    "@gammarers/aws-secure-bucket": "~1.4.1",
+    "@gammarers/aws-secure-log-bucket": "~1.7.2"
   },
   "keywords": [
     "access-log",
