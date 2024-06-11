@@ -4,8 +4,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.80.0',
-  typescriptVersion: '4.9.x',
-  jsiiVersion: '~5.0.0',
+  typescriptVersion: '5.3.x',
+  jsiiVersion: '5.3.x',
   defaultReleaseBranch: 'main',
   projenrcTs: true,
   name: '@gammarer/aws-secure-application-load-balancer-access-log-bucket',
@@ -14,19 +14,19 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 'elb', 'alb', 's3', 'bucket', 'access-log', 'log'],
   npmAccess: javascript.NpmAccess.PUBLIC,
   deps: [
-    '@gammarer/aws-secure-log-bucket@~0.12.10',
-    '@gammarer/aws-secure-bucket@~0.12.4',
+    '@gammarers/aws-secure-log-bucket@~1.7.2',
+    '@gammarers/aws-secure-bucket@~1.4.1',
   ],
   peerDeps: [
-    '@gammarer/aws-secure-log-bucket@~0.12.10',
-    '@gammarer/aws-secure-bucket@~0.12.4',
+    '@gammarers/aws-secure-log-bucket@~1.7.2',
+    '@gammarers/aws-secure-bucket@~1.4.1',
   ],
   minNodeVersion: '18.0.0',
-  workflowNodeVersion: '18.17.1',
+  workflowNodeVersion: '22.x',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 19 * * *']),
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 19 * * 6']),
     },
   },
   autoApproveOptions: {

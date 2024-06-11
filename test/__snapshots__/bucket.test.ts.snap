@@ -1,47 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SecureApplicationLoadBalancerAccessLogBucket Testing Should match snapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "SecureApplicationLoadBalancerAccessLogBucket6DB3A9E7": Object {
+  "Resources": {
+    "SecureApplicationLoadBalancerAccessLogBucket6DB3A9E7": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
+      "Properties": {
         "AccessControl": "Private",
-        "BucketEncryption": Object {
-          "ServerSideEncryptionConfiguration": Array [
-            Object {
-              "ServerSideEncryptionByDefault": Object {
-                "SSEAlgorithm": "aws:kms",
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256",
               },
             },
           ],
         },
-        "LifecycleConfiguration": Object {
-          "Rules": Array [
-            Object {
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
               "Id": "archive-step-lifecycle-rule",
               "Status": "Enabled",
-              "Transitions": Array [
-                Object {
+              "Transitions": [
+                {
                   "StorageClass": "STANDARD_IA",
                   "TransitionInDays": 60,
                 },
-                Object {
+                {
                   "StorageClass": "INTELLIGENT_TIERING",
                   "TransitionInDays": 120,
                 },
-                Object {
+                {
                   "StorageClass": "GLACIER",
                   "TransitionInDays": 180,
                 },
-                Object {
+                {
                   "StorageClass": "DEEP_ARCHIVE",
                   "TransitionInDays": 360,
                 },
@@ -49,57 +49,57 @@ Object {
             },
           ],
         },
-        "OwnershipControls": Object {
-          "Rules": Array [
-            Object {
+        "OwnershipControls": {
+          "Rules": [
+            {
               "ObjectOwnership": "BucketOwnerEnforced",
             },
           ],
         },
-        "PublicAccessBlockConfiguration": Object {
+        "PublicAccessBlockConfiguration": {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,
           "IgnorePublicAcls": true,
           "RestrictPublicBuckets": true,
         },
-        "VersioningConfiguration": Object {
+        "VersioningConfiguration": {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "SecureApplicationLoadBalancerAccessLogBucketPolicyDCDADB99": Object {
-      "Properties": Object {
-        "Bucket": Object {
+    "SecureApplicationLoadBalancerAccessLogBucketPolicyDCDADB99": {
+      "Properties": {
+        "Bucket": {
           "Ref": "SecureApplicationLoadBalancerAccessLogBucket6DB3A9E7",
         },
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "s3:*",
-              "Condition": Object {
-                "Bool": Object {
+              "Condition": {
+                "Bool": {
                   "aws:SecureTransport": "false",
                 },
               },
               "Effect": "Deny",
-              "Principal": Object {
+              "Principal": {
                 "AWS": "*",
               },
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "SecureApplicationLoadBalancerAccessLogBucket6DB3A9E7",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "SecureApplicationLoadBalancerAccessLogBucket6DB3A9E7",
                           "Arn",
                         ],
@@ -110,16 +110,16 @@ Object {
                 },
               ],
             },
-            Object {
+            {
               "Action": "s3:PutObject",
               "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::Join": Array [
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
                     "",
-                    Array [
+                    [
                       "arn:",
-                      Object {
+                      {
                         "Ref": "AWS::Partition",
                       },
                       ":iam::127311923021:root",
@@ -127,12 +127,12 @@ Object {
                   ],
                 },
               },
-              "Resource": Object {
-                "Fn::Join": Array [
+              "Resource": {
+                "Fn::Join": [
                   "",
-                  Array [
-                    Object {
-                      "Fn::GetAtt": Array [
+                  [
+                    {
+                      "Fn::GetAtt": [
                         "SecureApplicationLoadBalancerAccessLogBucket6DB3A9E7",
                         "Arn",
                       ],
@@ -149,22 +149,22 @@ Object {
       "Type": "AWS::S3::BucketPolicy",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
